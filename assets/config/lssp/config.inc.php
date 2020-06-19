@@ -72,17 +72,17 @@ $hash_options['crypt_salt_prefix'] = "$6$";
 # Local password policy
 # This is applied before directory password policy
 # Minimal length
-$pwd_min_length = 0;
+$pwd_min_length = {{PASSWD_MIN_LENGTH}};
 # Maximal length
-$pwd_max_length = 0;
+$pwd_max_length = {{PASSWD_MAX_LENGTH}};
 # Minimal lower characters
-$pwd_min_lower = 0;
+$pwd_min_lower = {{PASSWD_MIN_LOWER}};
 # Minimal upper characters
-$pwd_min_upper = 0;
+$pwd_min_upper = {{PASSWD_MIN_UPPER}};
 # Minimal digit characters
-$pwd_min_digit = 0;
+$pwd_min_digit = {{PASSWD_MIN_DIGIT}};
 # Minimal special characters
-$pwd_min_special = 0;
+$pwd_min_special = {{PASSWD_MIN_SPECIAL}};
 # Definition of special characters
 $pwd_special_chars = "^a-zA-Z0-9";
 # Forbidden characters
@@ -90,7 +90,7 @@ $pwd_special_chars = "^a-zA-Z0-9";
 # Don't reuse the same password as currently
 $pwd_no_reuse = true;
 # Complexity: number of different class of character required
-$pwd_complexity = 0;
+$pwd_complexity = {{PASSWD_COMPLEXITY}};
 # Show policy constraints message:
 # always
 # never
@@ -106,6 +106,10 @@ $pwd_show_policy_pos = "below";
 # user: the user itself
 # manager: the above binddn
 $who_change_password = "manager";
+
+
+# Reset URL (if behind a reverse proxy)
+{{RESET_URL_LINE}}
 
 ## Questions/answers
 # Use questions/answers?
@@ -144,13 +148,15 @@ $notify_on_change = false;
 $mail_address_use_ldap = {{LSSP_MAIL_FROM_LDAP}};
 # Auth
 $mail_smtp_host = '{{SMTP_HOST}}';
-$mail_smtp_auth = true;
+$mail_smtp_auth = {{SMTP_USEAUTH}};
 $mail_smtp_user = '{{SMTP_USER}}';
 $mail_smtp_pass = '{{SMTP_PASS}}';
 $mail_smtp_port = {{SMTP_PORT}};
 $mail_smtp_timeout = 30;
 $mail_smtp_keepalive = false;
 $mail_smtp_autotls = {{SMTP_TLS}};
+$mail_smtp_secure = '{{SMTP_SECURE}}';
+$mail_smtp_debug = {{SMTP_DEBUG}};
 
 ## SMS
 # Use sms

@@ -121,6 +121,10 @@ finalize_parameters() {
   fi
 
   VIRTUAL_SUBDIR=${VIRTUAL_SUBDIR:-lssp}
+
+  if [[ ${RESET_URL} ]]; then
+    RESET_URL_LINE="\$reset_url = \"${RESET_URL}/index.php\";"
+  fi
 }
 
 configure_lssp() {
@@ -147,6 +151,8 @@ configure_lssp() {
     SMTP_USER \
     SMTP_PASS \
     SMTP_TLS \
+    SMTP_SECURE \
+    SMTP_DEBUG \
     SMTP_DOMAIN \
     LSSP_MAIL_SUPPORT \
     LSSP_DEFAULT_ACTION \
@@ -154,7 +160,15 @@ configure_lssp() {
     RECAPTCHA_PUB_KEY \
     RECAPTCHA_PRV_KEY \
     RECAPTCHA_THEME \
-    RECAPTCHA_SSL
+    RECAPTCHA_SSL \
+    RESET_URL_LINE \
+    PASSWD_MIN_LENGTH \
+    PASSWD_MAX_LENGTH \
+    PASSWD_MIN_LOWER \
+    PASSWD_MIN_UPPER \
+    PASSWD_MIN_DIGIT \
+    PASSWD_MIN_SPECIAL \
+    PASSWD_COMPLEXITY
 
   update_template "${FILE_VHOST_CONFIG}" \
     VIRTUAL_SUBDIR

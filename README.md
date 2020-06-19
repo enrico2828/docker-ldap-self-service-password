@@ -84,8 +84,10 @@ Mail-Server (optional):
   - If omitted, authentication is disabled
 - `SMTP_FROM` (default: `root(at)${SERVER_HOSTNAME}`)
   - The address from which the password notification is coming from
-- `SMTP_TLS` (default: true)
+- `SMTP_TLS` (default: false)
   - Enable TLS connection
+- `SMTP_SECURE` (default: tls)
+- `SMTP_DEBUG` (default: 0)
 
 reCAPTCHA (optional):
 - `RECAPTCHA_USE` (default: false)
@@ -121,6 +123,23 @@ This will provide the following environment variables:
 
 - `SMTP_HOST` (by Docker Environment)
 - `SMTP_PORT` (by Docker Environment)
+
+### Password policy
+
+The following password policy variables are exposed through environment variables. For more complex configurations, see below.
+
+- `PASSWD_MIN_LENGTH` (default: 0)
+- `PASSWD_MAX_LENGTH` (default: 0)
+- `PASSWD_MIN_LOWER` (default: 0)
+- `PASSWD_MIN_UPPER` (default: 0)
+- `PASSWD_MIN_DIGIT` (default: 0)
+- `PASSWD_MIN_SPECIAL` (default: 0)
+- `PASSWD_COMPLEXITY` (default: 0)
+
+### Reset URL
+
+- `RESET_URL` (default: empty)
+  - set a custom rest URL for the password reset mail, e.g. "https:/my.domain.com" or "https:/my.domain.com/context"
 
 ### Advance configuration
 
